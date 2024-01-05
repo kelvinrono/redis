@@ -1,20 +1,19 @@
 package com.redis.Redis.repositories;
 
 import com.redis.Redis.models.User;
+import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 @Repository
+@RequiredArgsConstructor
 public class UserDaoImpl implements  UserDao{
 
     private static final String key = "USER";
     private final RedisTemplate redisTemplate;
-
-    public UserDaoImpl(RedisTemplate redisTemplate) {
-        this.redisTemplate = redisTemplate;
-    }
 
     @Override
     public boolean saveUser(User user) {
